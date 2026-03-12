@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furniture Guide Assistant</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#c8a97e"/>
+          <path d="M6 22V14a2 2 0 012-2h16a2 2 0 012 2v8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 22h24" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <path d="M10 12V9a2 2 0 012-2h8a2 2 0 012 2v3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>FurnitureAI</span>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">About</p>
+        <p class="sidebar-text">Ask anything about the Furniture Guide — materials, styles, care tips, buying advice, and more.</p>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="clear-btn" onclick="clearChat()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          Clear Chat
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="chat-header">
+        <h1>Furniture Guide Assistant</h1>
+        <span class="model-badge">GPT-4.1</span>
+      </div>
+
+      <div class="chat-window" id="chatWindow">
+        <!-- Welcome message -->
+        <div class="message assistant-message" id="welcomeMsg">
+          <div class="avatar assistant-avatar">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+              <path d="M6 22V14a2 2 0 012-2h16a2 2 0 012 2v8" stroke="#c8a97e" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M4 22h24" stroke="#c8a97e" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M10 12V9a2 2 0 012-2h8a2 2 0 012 2v3" stroke="#c8a97e" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="bubble">
+            <p>Hello! I'm your Furniture Guide Assistant. I have in-depth knowledge of the Furniture Guide and can help you with:</p>
+            <ul>
+              <li>Furniture materials and construction</li>
+              <li>Style and design recommendations</li>
+              <li>Care and maintenance tips</li>
+              <li>Buying guidance and comparisons</li>
+            </ul>
+            <p>What would you like to know?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="Ask about furniture..."
+            rows="1"
+            onkeydown="handleKey(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint">Press Enter to send · Shift+Enter for new line</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
